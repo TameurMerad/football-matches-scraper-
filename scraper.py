@@ -47,8 +47,16 @@ def main(page):
                 "time": time
             }
             matches_infos.append(match_info)
+            # print(match_info)
             
-
+    # print(matches_infos)
+    with open('matches.csv', 'w', encoding='utf-8', newline='') as csv_file:
+        fieldnames = ['championship', 'teamA', 'teamB', 'scoreA', 'scoreB', 'time']
+        dict_writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
+        dict_writer.writeheader()
+        dict_writer.writerows(matches_infos)
+        
+        print("Done")
 
             
     
